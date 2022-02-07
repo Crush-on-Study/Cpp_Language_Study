@@ -1,0 +1,20 @@
+#include <iostream>
+#include <cstring>
+
+#include "practice.h"
+#include "reference.h"
+
+int main()
+{
+	wife ira;
+	ira.set_access(28,45.6,"ira",160);
+	ira.show_result();
+	
+	return 0;
+}
+
+------------------------
+고찰해볼 점 : 문제 없이 돌아가지만 Warning으로 extra token에 대한 문제와
+missing whitespace after the macro name 문제가 발생한다.
+
+이 부분은 공부 후, 추후에 수정하여 올리겠다.
