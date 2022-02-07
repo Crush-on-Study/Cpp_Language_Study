@@ -26,6 +26,8 @@ void wife::show_result()
 	cout << "The Age is : " << age << endl;
 	cout << "The Weight is : " << weight << endl;
 	cout << "The Tall is : " << tall << endl;
+	
+	
 }
 
 #endif
