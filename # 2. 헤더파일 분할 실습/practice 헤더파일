@@ -1,0 +1,31 @@
+// class wife 코드 구현
+
+#ifndef practice.h
+#define practice.h
+
+class wife {
+	private:
+		int age;
+		double weight;
+		char *name;
+		double tall;
+		
+	public:
+		void set_access (int _age, double _weight, const char *_name, double _tall);
+		void show_result();
+};
+
+#endif
+
+
+------------------------------------------------------------------
+
+- #ifndef ~ #endif란?
+§ 이름에서도 알 수 있듯이 if는 만약에를 의미하구요. ndef는 NO Definition을 말합니다.  
+따라서 i#fndef practice.h는  '만약 practice 헤더파일이란게 정의가 되어있지 않다면  #define practice 헤더파일이라는 제목 하에,
+아래 코드들을 받아들여라. 단, #endif 바로 위까지만 해당한다.
+
+이런 의미라고 보면 됩니다.
+
+- const char *_name??
+§ gcc 컴파일러 update로 인해 이제 매개변수를 호출할 때 const를 쓰지 않으면 컴파일 에러가 납니다.
