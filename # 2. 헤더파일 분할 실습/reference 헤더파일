@@ -1,0 +1,37 @@
+// reference 헤더파일은  practice 헤더 파일에 정의했던 class를 데려왔습니다.
+
+#ifndef reference.h
+#define reference.h
+
+#include <cstring>
+#include <iostream>
+#include "practice.h"
+
+using namespace std;
+
+void wife::set_access(int _age, double _weight, const char *_name, double _tall )
+{
+	name = new char[strlen(_name)+1];
+	strcpy(name,_name);
+	
+	age = _age;
+	weight = _weight;
+	tall = _tall;
+	
+}
+
+void wife::show_result()
+{
+	cout << "The Name is : " << name << endl;
+	cout << "The Age is : " << age << endl;
+	cout << "The Weight is : " << weight << endl;
+	cout << "The Tall is : " << tall << endl;
+}
+
+#endif
+
+--------------------------------------------------
+
+- new?
+§ C++의 동적메모리할당입니다. new는 heap영역에서 메모리를 필요한만큼 빌려오겠다는 말이고 프로그램 종료 시,  delete연산자를 통해 반환합니다.
+delete를 사용하지 않을 시, 프로그램을 종료해도 메모리를 반환하지 않기 때문에 실행을하면 할수록 메모리 누수가 커져서 매우 비효율적인 프로그램이 됩니다.
