@@ -1,0 +1,83 @@
+/****************************************************************
+******** Language : C++ *******************************************
+************** OS : Windows ************************************
+*********************** IDE : Dev C++  and  VScode **************
+********************************** Let's start! ********************
+******************************************************************/
+
+
+// # 1. Class_접근 지시자 Private과 Public
+// 과일 계산 프로그램
+
+#include <iostream>
+
+using namespace std;
+
+class Fruit {
+	private:
+		int caloies;
+		int price;
+		int count;
+		int My_money;
+		
+	public:
+		void set_access (int _caloies, int _price, int _count, int _My_money)
+		{
+			caloies = _caloies;
+			price = _price;
+			count = _count;
+			My_money = _My_money;
+		}
+		
+		int pay (int price, int count)
+		{
+			price = price*count;
+			My_money -= price;
+			caloies = caloies*count;
+			
+			return My_money;			
+		}
+		
+		void show_result()
+		{
+			cout << "산 과일 수는 : " << count << endl;
+			cout << "지불한 금액은 : " << price << endl;
+			cout << "남은 돈은 : " << My_money << endl;
+			cout << "총 섭취하게 될 칼로리 수는 : " << caloies << endl;
+		}
+		
+};
+
+int main()
+{
+	Fruit apple;
+	apple.set_access(800,2000,7,100000);
+	apple.pay(2000,7);
+	apple.show_result(); 
+	
+	return 0;
+}
+
+-------------------------------------------------------------
+
+- 접근지시자 Private과 Public에 대하여
+§ 이름만 봐도 느껴지겠지만 Private과 Public은 서로 반대되는 말입니다. Private 라벨에 선언된 여러 자료형 변수들은 클래스 밖에서는 접근이 불가능합니다.
+말 그대로 'Private' 이니까요. 이를 C++에서는 정보은닉이라고 부르기도 합니다. 
+반대로 Public 라벨에 선언된 void, int 함수들은 클래스 밖에서도 접근이 가능합니다. 이걸 잘 보여주고 있는게 main함수죠.
+main함수에서는 set_access 함수랑 pay 함수. 그리고 show_result 함수를 사용함으로써 접근에 제한이 없음을 보입니다.
+
+§ 하지만 private에 있는 변수를 그냥 냅둘순 없습니다. 그래서 진행하는게 멤버변수 초기화입니다. 영어로 배우신분들은 Member Init (멤버 이니셜라이저)라고 배웠을겁니다.
+보시면 저는 public에서 private 변수를 초기화하고자  void set_access 함수를 통해  매개변수를 멤버변수에다 집어넣는 모습을 짜놨습니다.
+
+- 객체 생성 apple
+§ 클래스는 객체를 생성하기 위한 설계도다! 라는 말을 들어본적이 있을겁니다. (만약 C++을 다른데서 한번이라도 듣고 오셨다면요!)
+위 소스코드를 보면 설계도라는 별명이 좋은 선택임을 어렴풋이 알 수 있습니다. apple이라는 객체를 만들어내기 위해  apple가 가질 정보 (멤버변수)들. 그리고 그 정보들을 이용한 
+행동패턴 (멤버함수) 들을 미리 구현해냈기 때문입니다. 
+
+apple이라는 객체는 이제 칼로리, 과일 개수, 가격, 현재 구매자가 가진 돈이라는 정보를 담고  이들을 계산하는 행동이 가능합니다. C언어의 구조체때보다 훨씬 지능(?)이 부여된 셈이죠.
+
+§ . 은 직접참조연산자라 보시면 됩니다.  '객체.멤버함수' 이런 식으로 사용하는데  객체 포인터를 이용한 접근이 아닌 이상  직접참조연산자를 사용하는 편입니다.
+
+- C++은 형식지정자가 없나요?
+§ 있는데 필요가 없습니다. 컴파일러가 똑똑해져서 매개변수의 자료형 타입을 받고 알아서 cout으로 출력할 때 대응되서 나옵니다.
+C++이 보여주는 편리함 중 하나죠.
