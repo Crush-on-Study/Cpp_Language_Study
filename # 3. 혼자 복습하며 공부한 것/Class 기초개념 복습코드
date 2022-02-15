@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+class account_info {
+	private:
+		char *name;
+		char *account_num;
+		int money;
+		char *ID;
+		int pw;
+		
+	public:
+		account_info(const char *account_num, const char *name , const char *ID, int money, int pw) : money(10000000) , pw(0000) {
+			
+			this->account_num = new char[strlen(account_num)+1];
+			strcpy(this->account_num, account_num);
+			
+			this->name = new char[strlen(name)+1];
+			strcpy(this->name, name);
+			
+			this->ID = new char[strlen(ID)+1];
+			strcpy(this->ID, ID);
+		}
+		
+		
+		int input_money (int give);
+		int deposit_money (int take);
+		void show_result();
+		
+		
+		
+		~account_info()
+		{
+			delete[] account_num;
+			delete[] name;
+			delete[] ID;
+		}
+		
+		
+};
+
+int account_info::input_money(int give)
+{
+	money += give;
+			
+	return money;
+}
+
+int account_info::deposit_money(int take)
+{
+	money -= take;
+	
+	return money;
+}
+
+void account_info::show_result()
+{
+		
+		cout << "Your account number : " << account_num << endl;
+		cout << "Your name is : " << name << endl;
+		cout << "Your ID is : " << ID << endl;
+		cout << "You have : " << money << endl;
+
+}
+
+
+int main()
+{
+	
+	account_info crush("110-410-900883", "HB_KANG" , "larpore",10000000,2670267);
+	crush.input_money(2721400);
+	crush.deposit_money(550000);
+	crush.show_result();	
+	
+	return 0;
+}
